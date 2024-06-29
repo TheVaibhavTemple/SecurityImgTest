@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+	<head>
+		<title>Page Title</title>
+		<meta charset="ISO-8859-1"></meta>
+	</head>
+	<body>
+	
+	<h1>Register Page</h1>
+	<form th:action="@{/save}" method="post" enctype="multipart/form-data">
+	  <label for="name">Name:</label><br>
+	  <input type="text" id="name" name="name"><br>
+	  
+	  <label for="address">Address:</label><br>
+	  <input type="text" id="address" name="address"><br>
+	  
+	  <label for="age">Age:</label><br>
+	  <input type="number" id="age" name="age"><br>
+	  
+	  <label for="phoneNo">Phone No:</label><br>
+	  <input type="number" id="phoneNo" name="phoneNo"><br>
+	  
+	  <label for="email">Email:</label><br>
+	  <input type="email" id="email" name="email"><br>
+	  
+	  <label for="password">Password:</label><br>
+	  <input type="password" id="password" name="password"><br>
+	  
+	  <label for="lname">User Roles:</label><br>
+	  <input type="checkbox" name="usrRole" value="ADMIN" /> ADMIN
+	  <input type="checkbox" name="usrRole" value="EMPLOYEE" /> EMPLOYEE
+	  <input type="checkbox" name="usrRole" value="EMPLOYEE" /> STUDENT<br>
+	  
+	  <label for="image">IMAGE:</label>
+	  <input type="file" name="image" value="image" accept="image/*"/><br>
+	  <br><br>
+	  
+	  <div th:if="${msg != null}">
+	  	<div th:text = "${msg}"></div> 
+	  </div>
+	  
+	  <div th:if="${img  != null}">
+        <h3>Uploaded Image:</h3>
+          <img th:src="'data:image/png;base64,' + ${img}" />
+    </div>
+    
+	  
+	  <input type="submit" value="Register">
+	</form> 
+	
+	</body>
+</html>
